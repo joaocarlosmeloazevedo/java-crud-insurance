@@ -25,4 +25,6 @@ public class SeguradoRepository {
 	public List<Segurado> findAll(){
 		return new ArrayList<Segurado>(map.values());
 	}
+	
+	
 }
