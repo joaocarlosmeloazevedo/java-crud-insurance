@@ -1,25 +1,39 @@
+//CLASSE QUE DEFINE O OBJETO
+//SEGURADO - Nome e CPF ou CNPJ
+
 package br.com.neutron.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Segurado implements Serializable{
-	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
+	
 	private Long id;
 	private String nome;
+	private String cpfCnpj;
+	
+	//private List<Sinistro> sinistros = new ArrayList<>();
 	
 	public Segurado() {
 		
 	}
 
-	public Segurado(Long id, String nome) {
+	//public List<Sinistro> getSinistros() {
+	//	return sinistros;
+	//}
+
+	//public void setSinistros(List<Sinistro> sinistros) {
+	//	this.sinistros = sinistros;
+	//}
+
+	public Segurado(Long id, String nome, String cpfCnpj) {
 		super();
 		this.id = id;
 		this.nome = nome;
+		this.cpfCnpj = cpfCnpj;
 	}
 
 	public Long getId() {
@@ -36,6 +50,14 @@ public class Segurado implements Serializable{
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	public String getCpfCnpj() {
+		return cpfCnpj;
+	}
+	
+	public void setCpfCnpj(String cpfCnpj) {
+		this.cpfCnpj = cpfCnpj;
 	}
 
 	@Override

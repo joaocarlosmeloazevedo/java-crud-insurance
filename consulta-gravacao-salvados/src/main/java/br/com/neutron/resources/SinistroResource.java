@@ -9,33 +9,33 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.neutron.entity.Segurado;
-import br.com.neutron.repositories.SeguradoRepository;
+import br.com.neutron.entity.Sinistro;
+import br.com.neutron.repositories.SinistroRepository;
 
 @RestController
-@RequestMapping(value = "/segurado")
-public class SeguradoResource {
+@RequestMapping(value = "/sinistros")
+public class SinistroResource {
 
 	@Autowired /* Creating a dependency of my Repository Class */
-	private SeguradoRepository seguradoRepository;
+	private SinistroRepository SinistroRepository;
 	
 	/* ResponseEntity = Requesting with a set of Parameters (An entire List in this case).
 	  				    Returning, if possible, an "OK" HTTP Response passing the List inside the body. */
 	
 	@GetMapping /* Saying to Java that is a GET Method */
-	public ResponseEntity<List<Segurado>> findAll(){
+	public ResponseEntity<List<Sinistro>> findAll(){
 		
 		/* Instanciando  */
-		List<Segurado> list = seguradoRepository.findAll();
+		List<Sinistro> list = SinistroRepository.findAll();
 		
 		return ResponseEntity.ok().body(list);
 	}
 	
-	/* Returning just the Segurado by ID, and passing his ID inside the body*/
+	/* Returning just the Sinistro by ID, and passing his ID inside the body*/
 	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<Segurado> findByID(@PathVariable Long id){
-		Segurado seg = seguradoRepository.findById(id);
+	public ResponseEntity<Sinistro> findByID(@PathVariable Long id){
+		Sinistro seg = SinistroRepository.findById(id);
 		
 		return ResponseEntity.ok().body(seg);
 	}

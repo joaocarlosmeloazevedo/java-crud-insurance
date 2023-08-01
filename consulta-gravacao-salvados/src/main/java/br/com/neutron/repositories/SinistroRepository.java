@@ -7,25 +7,25 @@ import java.util.Map;
 
 import org.springframework.stereotype.Component;
 
-import br.com.neutron.entity.Segurado;
+import br.com.neutron.entity.Sinistro;
 
 /* Annotation to create an object of this class on Entities Resource */
 @Component 
-public class SeguradoRepository {
+public class SinistroRepository {
 	
 	/* Dictionary KEY:VALUE */
-	private Map<Long, Segurado> map = new HashMap <>(); 
+	private Map<Long, Sinistro> map = new HashMap <>(); 
 	
-	public void save(Segurado obj) {
+	public void save(Sinistro obj) {
 		map.put(obj.getId(), obj);
 	}
 	
-	public Segurado findById(Long id) {
+	public Sinistro findById(Long id) {
 		return map.get(id);
 	}
 	
-	public List<Segurado> findAll(){
-		return new ArrayList<Segurado>(map.values());
+	public List<Sinistro> findAll(){
+		return new ArrayList<Sinistro>(map.values());
 	}
 	
 	
